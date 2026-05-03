@@ -1,0 +1,111 @@
+/*changing the Divi hamburger menu to X*/
+.mobile_nav.opened .mobile_menu_bar:before {
+    content: '\4d';
+}
+/*rotating the Divi Menu icon*/
+
+.mobile_menu_bar:before {
+    transition: all .4s ease;
+    transform: rotate(0deg);
+    display: block;
+}
+
+
+/*rotate the Divi Menu icon on click*/
+
+.mobile_nav.opened .mobile_menu_bar::before {
+    transition: all .4s ease;
+    transform: rotate(90deg);
+    display: block;
+}
+
+/* Remove the top line in the mobile menu*/
+.et_mobile_menu {
+border-top:0;
+}
+
+/*making the Divi Menu full width*/
+.et_pb_menu .et_mobile_menu{
+    min-width: 105vw;
+     padding-top: 20%!important;
+   margin-left: -4vw;
+    padding-bottom: 100vh!important;
+}
+
+/*removing the line from the menu items and adding line height*/
+
+.et_mobile_menu li a {
+padding:10px 10px!important;
+border-bottom: none!important;
+}
+
+/*removing padding of the social media icons*/
+.et_mobile_menu li li {
+    padding-left:0%!important;
+}
+
+/* === Smooth open & close animation for Divi mobile menu === */
+
+/* Base (closed state) */
+.et_mobile_menu {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: 
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+/* When menu is opened */
+.mobile_nav.opened .et_mobile_menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Prevent instant jump when closing */
+.mobile_nav .et_mobile_menu {
+    display: block !important;
+}
+
+
+/* PRELOADER */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: #101828;
+  z-index: 99999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* LOADER CIRCLE */
+body::after {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 3px solid rgba(243, 244, 246, 0.2);
+  border-top: 3px solid #f3f4f6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  z-index: 100000000;
+}
+
+/* SPIN */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* HIDE AFTER LOAD */
+body.loaded::before,
+body.loaded::after {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}

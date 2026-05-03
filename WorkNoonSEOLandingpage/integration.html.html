@@ -1,0 +1,20 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menu = document.querySelector('.et_pb_menu');
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > window.innerHeight * 0.9) {
+      menu.classList.add('scrolled');
+    } else {
+      menu.classList.remove('scrolled');
+    }
+  });
+});
+</script>
+
+
+<script>
+window.addEventListener("load", function () {
+  document.body.classList.add("loaded");
+});
+</script>
